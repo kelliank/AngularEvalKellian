@@ -1,6 +1,9 @@
 <div *ngIf="currentComponent === 'panier'">
 <div class="main-panel">
     <h1 class="titre-panier">Mon panier</h1>
+    <button (click)="deleteAll()" class="delete-all-button">
+        <span class="material-icons clickable">delete</span>
+    </button>
     <div *ngIf="panier && panier.length > 0" class="cartes-container">
         <div *ngFor="let item of panier" class="bloc-article">
             <p class="titre-article">{{ item.name }}</p>

@@ -65,5 +65,10 @@ export class EPanierService {
   isInBasket(item: IArticle): boolean {
     return this.panier.some(article => article.id === item['Unique Entry ID']);
   }
+
+  clearPanier() {
+    this.panier = [];
+    this.panierSubject.next(this.panier);
+  }
   
 }
