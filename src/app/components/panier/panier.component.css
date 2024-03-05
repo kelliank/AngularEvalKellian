@@ -1,0 +1,15 @@
+.main-panel {
+    width: 50%;
+    height: 450px; 
+    margin-top: 40px ;
+    margin-left: auto; 
+    margin-right: auto; 
+    background-color: #f0f0f0;
+    border: 2px solid #ccc;
+}
+
+.titre-panier {
+    font-size: 1,5em; 
+    font-weight: normal; 
+    text-align: center;
+}
