@@ -13,17 +13,24 @@ export class EPanierService {
   constructor() { }
 
   addToPanier(article: IArticle, quantity: number) {
-    const articlePanier: IArticlePanier = {
-      id: article['Unique Entry ID'],
-      name: article.Name,
-      quantity: quantity,
-      price: article.Buy,
-      totalPrice: article.Buy * quantity 
-    };
+    const existingItem = this.panier.find(item => item.id === article['Unique Entry ID']);
 
-    this.panier.push(articlePanier);
+    if (existingItem) {
+        existingItem.quantity += quantity;
+        existingItem.totalPrice += article.Buy * quantity;
+    } else {
+        const articlePanier: IArticlePanier = {
+            id: article['Unique Entry ID'],
+            name: article.Name,
+            quantity: quantity,
+            price: article.Buy,
+            totalPrice: article.Buy * quantity 
+        };
+        this.panier.push(articlePanier);
+    }
+
     this.panierSubject.next(this.panier);
-  }
+}
 
   removeFromPanier(articleId: string) {
     const itemIndex = this.panier.findIndex(item => item.id === articleId);
@@ -54,4 +61,9 @@ export class EPanierService {
   getPanier() {
     return this.panierSubject.asObservable();
   }
+
+  isInBasket(item: IArticle): boolean {
+    return this.panier.some(article => article.id === item['Unique Entry ID']);
+  }
+  
 }

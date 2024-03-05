@@ -9,6 +9,9 @@
       <button (click)="addToBasket(item, parseQuantity(quantityInput.value))">
         <span class="material-icons">shopping_cart</span>
       </button>
+      <button *ngIf="isInCart(item)" (click)="removeFromBasket(item)" class="delete">
+        <span class="material-icons">delete</span>
+      </button>
     </div>
   </div>
 </div>

@@ -25,13 +25,18 @@ export class ArticlesComponent {
 
   addToBasket(article: IArticle, quantity: number) {
     this.panierService.addToPanier(article, quantity);
-    console.log("article ajouté");
-    console.log("id"+ article['Unique Entry ID'])
   }
   
   parseQuantity(value: string): number {
     return parseInt(value, 10); 
   }
   
-
+  isInCart(item: IArticle): boolean {
+    return this.panierService.isInBasket(item);
+  }
+  
+  removeFromBasket(article: IArticle) {
+    this.panierService.removeFromPanier(article['Unique Entry ID']);
+  }
+  
 }

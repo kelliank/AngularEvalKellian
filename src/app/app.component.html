@@ -1,3 +1,5 @@
-<app-navbar (navigate)="navigateTo($event)"></app-navbar>
+<header role="banner">
+    <app-navbar (navigate)="navigateTo($event)"></app-navbar>
+</header>
 <app-articles *ngIf="currentComponent === 'articles'"></app-articles>
 <app-panier *ngIf="currentComponent === 'panier'"></app-panier>

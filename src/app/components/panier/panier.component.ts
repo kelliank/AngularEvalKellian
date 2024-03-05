@@ -42,7 +42,5 @@ export class PanierComponent implements OnInit {
 
   navigateTo(component: string) {
     this.currentComponent = component;
-  }
-
-  
+  }  
 }

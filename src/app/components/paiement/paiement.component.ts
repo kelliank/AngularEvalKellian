@@ -1,14 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { IUser } from '../../interfaces/IUser';
+import { FormsModule } from '@angular/forms';
+import { ArticlesComponent } from '../articles/articles.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-paiement',
   standalone: true,
-  imports: [],
+  imports: [FormsModule, ArticlesComponent, CommonModule],
   templateUrl: './paiement.component.html',
   styleUrl: './paiement.component.css'
 })
 export class PaiementComponent {
+  @Output() navigate = new EventEmitter<string>();
+
   user: IUser = {
     lastname: '',
     firstname: '',
@@ -22,4 +27,5 @@ export class PaiementComponent {
   submitForm() {
     console.log('Formulaire soumis avec succès', this.user);
   }
+
 }
