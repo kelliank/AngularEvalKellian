@@ -26,6 +26,6 @@ export interface IArticle {
     Filename: string;
     ClothGroupID: number;
     InternalID: number;
-    UniqueEntryID: string;
+    "Unique Entry ID" : string;
   }
   

@@ -1,2 +1,3 @@
-<app-articles></app-articles>
-<app-panier></app-panier>
+<app-navbar (navigate)="navigateTo($event)"></app-navbar>
+<app-articles *ngIf="currentComponent === 'articles'"></app-articles>
+<app-panier *ngIf="currentComponent === 'panier'"></app-panier>

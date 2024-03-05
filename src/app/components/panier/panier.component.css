@@ -13,3 +13,28 @@
     font-weight: normal; 
     text-align: center;
 }
+
+.bloc-article {
+    width: 90%;
+    height: auto; 
+    margin-top: 5px ;
+    margin-left: 15px;
+    background-color: #f0f0f0;
+    border: 2px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.titre-article {
+    margin-left: 10px;
+}
+
+.prix {
+    margin-right: 10px;
+}
+
+.empty {
+    text-align: center;
+}

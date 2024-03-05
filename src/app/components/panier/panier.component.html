@@ -1,3 +1,24 @@
 <div class="main-panel">
     <h1 class="titre-panier">Mon panier</h1>
+    <div *ngIf="panier && panier.length > 0" class="cartes-container">
+        <div *ngFor="let item of panier" class="bloc-article">
+            <p class="titre-article">{{ item.name }}</p>
+            <p class="quantite">Quantite : {{ item.quantity }}</p>
+            <p class="prix">Prix à l'unité: {{ item.price }}</p>
+            <p class="prixtotal">Prix total: {{ item.totalPrice }}</p>
+            <button (click)="decreaseQuantity(item.id)">
+            <span class="material-icons clickable">remove</span>
+            </button>
+            <button (click)="increaseQuantity(item.id)">
+            <span class="material-icons clickable">add</span>
+            </button>
+            <button (click)="removeFromPanier(item.id)">
+            <span class="material-icons clickable">delete</span>  
+            </button>
+        </div>
+        <button (click)="payer()">Payer</button>
+    </div>
+    <div *ngIf="panier && panier.length === 0" class="empty">
+        Votre panier est vide.
+    </div>
 </div>

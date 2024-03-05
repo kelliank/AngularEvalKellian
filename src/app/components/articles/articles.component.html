@@ -1,12 +1,14 @@
 <div class="cartes-container">
-    <div *ngFor="let item of articles" class="bloc-article">
-      <h1 class="titre-article">{{ item.Name }}</h1>
-      <img [src]="item['Closet Image']" alt="Image de l'article">
-      <p class="text">Availability : {{ item['Seasonal Availability'] }}</p>
-      <p class="text">Prix : {{ item.Buy }}</p>
-      <div class="buy-bloc">
-      <input type="number" value="1" min="1" step="1" class="quantity">
-      <span class="material-icons">shopping_cart</span>
-      </div>
+  <div *ngFor="let item of articles" class="bloc-article">
+    <h1 class="titre-article">{{ item.Name }}</h1>
+    <img [src]="item['Closet Image']" alt="Image de l'article">
+    <p class="text">Availability : {{ item['Seasonal Availability'] }}</p>
+    <p class="text">Prix : {{ item.Buy }}</p>
+    <div class="buy-bloc">
+      <input type="number" #quantityInput value="1" min="1" step="1" class="quantity">
+      <button (click)="addToBasket(item, parseQuantity(quantityInput.value))">
+        <span class="material-icons">shopping_cart</span>
+      </button>
+    </div>
   </div>
 </div>
