@@ -1,14 +1,3 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { PaiementComponent } from './components/paiement/paiement.component';
+import { Routes } from '@angular/router';
 
-const routes: Routes = [
-  // Autres routes
-  { path: 'paiement', component:  PaiementComponent},
-];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
+export const routes: Routes = [];

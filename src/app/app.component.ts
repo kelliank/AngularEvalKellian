@@ -18,6 +18,7 @@ export class AppComponent {
   currentComponent = 'articles';
 
   navigateTo(component: string) {
+    console.log(component);
     this.currentComponent = component;
   }
   

@@ -1,18 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { IArticle } from '../../interfaces/IArticle';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { EPanierService } from '../../services/epanierService';
 import { CommonModule} from '@angular/common';
 import { IArticlePanier } from '../../interfaces/IArticlePanier';
 import { Router } from '@angular/router';
+import { PaiementComponent } from '../paiement/paiement.component';
 
 @Component({
   selector: 'app-panier',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, PaiementComponent],
   templateUrl: './panier.component.html',
   styleUrl: './panier.component.css'
 })
 export class PanierComponent implements OnInit {
+  @Output() navigate = new EventEmitter<string>();
+
   panier!: IArticlePanier[];
 
   constructor(private panierService: EPanierService, private router: Router) { }
@@ -36,9 +38,11 @@ export class PanierComponent implements OnInit {
     this.panierService.decreaseQuantity(articleId);
   }
 
-  payer() {
-    console.log("redirection")
-    this.router.navigate(['/paiement']); 
+  currentComponent = 'panier';
+
+  navigateTo(component: string) {
+    this.currentComponent = component;
   }
 
+  
 }

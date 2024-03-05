@@ -1,3 +1,4 @@
+<div *ngIf="currentComponent === 'panier'">
 <div class="main-panel">
     <h1 class="titre-panier">Mon panier</h1>
     <div *ngIf="panier && panier.length > 0" class="cartes-container">
@@ -16,9 +17,11 @@
             <span class="material-icons clickable">delete</span>  
             </button>
         </div>
-        <button (click)="payer()">Payer</button>
+        <button (click)="navigateTo('paiement')" class="paiementbutton">Payer</button>
     </div>
     <div *ngIf="panier && panier.length === 0" class="empty">
         Votre panier est vide.
     </div>
 </div>
+</div>
+<app-paiement *ngIf="currentComponent === 'paiement'"></app-paiement>
